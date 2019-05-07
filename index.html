@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -25,8 +25,36 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Intro to Javascript ES2015+</h1>
+				</section>
+				<section>
+					<h2>JS Versions</h2>
+					<p>ES5, ES2015, ES2017, ES2018, ES.Next</p>
+					<p>Going forward, ECMAScript will be updated annually</p>
+					<p>(ES2015 === ES6)</p>
+				</section>
+				<section>
+					<h2>Syntax vs Features</h2>
+					<p>Syntax:</p>
+					<p>let, const and var</p>
+					<p>Features (methods and objects):</p>
+					<pre><code data-trim data-noescape>const cats = ["Sylvie", "Blixa", "Max", "Ramona"];
+
+// String.startsWith - ES2015
+cats[0].startsWith("Sy"); // true
+
+// Array.find - ES2015
+cats.find(cat => cat === "Sylvie"); // Sylvie
+
+// Array.includes - ES2016
+cats.includes("Sylvie"); // true</code></pre>
+				</section>
+				<section>
+					<h2>Babel & Polyfills</h2>
+					<p>Mix uses Babel to compile ES2105 syntax to vanilla JS.</p>
+					<p>Our Mix setup also adds polyfills to support used ES2015+ features in older browsers like IE11. <small>(The total polyfill package is 38.8K zipped)</small></p>
+				</section>
 			</div>
 		</div>
 
