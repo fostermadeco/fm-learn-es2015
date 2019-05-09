@@ -29,6 +29,10 @@
 					<h1>Intro to Javascript ES2015+</h1>
 				</section>
 				<section>
+					<h2>FM Javascript Quick Reference ES2015+</h2>
+					<p>https://github.com/fostermadeco/standards/blob/master/javascript/js-quick-reference.md</p>
+				</section>
+				<section>
 					<h2>JS Versions</h2>
 					<p>ES5, ES2015, ES2017, ES2018, ESNext</p>
 					<p>Going forward, ECMAScript will be updated annually</p>
@@ -83,7 +87,7 @@
 				<section data-markdown><textarea data-template>
 					## `let`
 
-					block scope local variable that can change
+					block scope variable that can change
 					
 					```
 					let x = 1;
@@ -105,7 +109,7 @@
 				<section data-markdown><textarea data-template>
 					## `const`
 					
-					block scope local variable that can't change
+					block scope variable that can't change
 					
 					```
 					const number = 42;
@@ -125,7 +129,7 @@
 				<section data-markdown><textarea data-template>
 					## `var`
 
-					not block scope
+					not block scoped
 					
 					```
 					var x = 1;
@@ -157,7 +161,7 @@
 
 					const template = `
 						<div>
-							<h1>Hi, my name is ${first}!</h1>
+							<h1>Hi, my name is ${first} ${last}!</h1>
 						</div>
 					`;
 					```
@@ -181,20 +185,26 @@
 						console.log(name, index);
 					});
 					```
-					Good for arrays.
-
-					Can't break out of it.
+					* For arrays.
+					* Can't break out of it.
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					`for/in`
 					```
+					const cat = {name: 'Sylvie', type: 'calico', gender: 'female'};
+
+					for (const key in cat) {
+						const value = cat[key];
+						console.log(value, key)
+					}
+
 					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
 
 					for (const i in names) {
 						const name = names[i];
 					}
 					```
-					Also good for arrays.
+					For objects, but can be used with arrays (as long as order isn't important). 
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					`for/of`
@@ -213,12 +223,10 @@
 					}
 					```
 
-					`array.entries` returns a new Array iterator object. 
-					`Object.entries(obj)` returns array of [key, value] 
-
-					Also uses destructuring.
-
-					Can be used with arrays or objects (ES2017)
+					* Very versatile. Can be used on anything iterable: array, string, object (ES2017), dom collection (node list), arguments, string, map or set.
+					* `array.entries` returns a new Array iterator object. 
+					* `Object.entries(obj)` returns array of [key, value]. 
+					* Also uses destructuring.
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 				</textarea></section>
