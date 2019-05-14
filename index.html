@@ -286,6 +286,34 @@
 
 				<section data-markdown>
 					<textarea data-template>
+						## Default Function Parameters
+
+						Old
+						```
+							function addTwoNumbers(a, b) {
+								if (typeof b === 'undefined') {
+									b = 0;
+								}
+								
+								return a + b;
+							}
+
+							addTwoNumbers(5);
+						```
+
+						New
+						```
+							function addTwoNumbers(a, b = 0) {
+								return a + b;
+							}
+
+							addTwoNumbers(5);
+						```
+					</textarea>
+				</section>
+				
+				<section data-markdown>
+					<textarea data-template>
 					</textarea>
 				</section>
 			</div>
