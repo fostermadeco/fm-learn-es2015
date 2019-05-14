@@ -388,7 +388,92 @@
 						```
 					</textarea>
 				</section>
-				
+
+				<section data-markdown>
+					<textarea data-template>
+						## Spread Operator
+
+						Official definition on MDN docs:
+
+						Spread syntax allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected.
+
+						???
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Spread Operator - Arrays
+
+						Concatenating (Old)
+						```
+						const cats = ['Mittens', 'Bootsy, 'Miss Cinderella'];
+						const dogs = ['Rover', 'Bud', 'Gromit'];
+						const chaos = cats.concat(dogs);
+						```
+
+						Concatenating (New)
+						```
+						const cats = ['Mittens', 'Bootsy, 'Miss Cinderella'];
+						const dogs = ['Rover', 'Bud', 'Gromit'];
+						const chaos = [...cats, ...dogs];
+						```
+
+						Cloning:
+						```
+						const cats = ['Mittens', 'Bootsy, 'Miss Cinderella'];
+						const copyOfCats = [...cats];
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Spread Operator - Objects
+
+						Merging (Old)
+						```
+						const girlfriendsCat = {
+							name: 'Zy',
+							fat: true,
+							lazy: true,
+							limbs: 'natural'
+						};
+
+						const bionicLegs = { limbs: 'bionic' };
+						const upgradedCat = Object.assign({}, girlfriendsCat, bionicLegs);
+						console.log(upgradedCat) // { name: 'Zy' fat: true, lazy: true, limbs: 'bionic' }
+
+						```
+
+						Merging (New)
+						```
+						const girlfriendsCat = {
+							name: 'Zy',
+							fat: true,
+							lazy: true,
+							limbs: 'natural'
+						};
+
+						const bionicLegs = { limbs: 'bionic' };
+						const upgradedCat = { ...girlfriendsCat, ...bionicLegs };
+						console.log(upgradedCat) // { name: 'Zy' fat: true, lazy: true, limbs: 'bionic' }
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Spread Operator - Function calls
+
+						```
+							const someNumbers = [9, 4, 7, 1];
+							const min = Math.min(...someNumbers);
+							console.log(min); // 1
+						```
+					</textarea>
+				</section>
+
 				<section data-markdown>
 					<textarea data-template>
 					</textarea>
