@@ -476,6 +476,26 @@
 
 				<section data-markdown>
 					<textarea data-template>
+						## Rest Operator
+
+						The rest parameter syntax allows us to represent an indefinite number of arguments as an array.
+
+						```
+						function sumAll(...numbers) { // args is the name for the array
+							let sum = 0;
+							numbers.forEach(number => (sum += number));
+							return sum;
+						}
+
+						console.log(sumAll(1)); // 1
+						console.log(sumAll(1, 2)); // 3
+						console.log(sumAll(1, 2, 3)); // 6
+						```
+					</textarea>
+				</section>
+				
+				<section data-markdown>
+					<textarea data-template>
 					</textarea>
 				</section>
 			</div>
