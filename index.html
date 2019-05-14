@@ -28,16 +28,19 @@
 				<section>
 					<h1>Intro to Javascript ES2015+</h1>
 				</section>
+
 				<section>
 					<h2>FM Javascript Quick Reference ES2015+</h2>
 					<p>https://github.com/fostermadeco/standards/blob/master/javascript/js-quick-reference.md</p>
 				</section>
+
 				<section>
 					<h2>JS Versions</h2>
 					<p>ES5, ES2015, ES2017, ES2018, ESNext</p>
 					<p>Going forward, ECMAScript will be updated annually</p>
 					<p>(ES2015 === ES6)</p>
 				</section>
+
 				<section data-markdown><textarea data-template>
 					## Syntax and Built-ins
 					
@@ -228,9 +231,63 @@
 					* `Object.entries(obj)` returns array of [key, value]. 
 					* Also uses destructuring.
 				</textarea></section>
-				<section data-markdown><textarea data-template>
-				</textarea></section>
 
+				<section data-markdown>
+					<textarea data-template>
+						## Arrow Functions
+						(AKA "fat arrow" syntax)
+
+						Old
+						```
+							var addTwoNumbers = function (a, b) {
+								return a + b;
+							}
+						```
+
+						New
+						```
+							const addTwoNumbers = (a, b) => {
+								return a + b;
+							}
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Arrow Functions
+
+						If your function is just a single expression, then this syntax
+						```
+							const addTwoNumbers = (a, b) => {
+								return a + b;
+							}
+						```
+
+						Can also be written as
+						```
+							const addTwoNumbers = (a, b) => a + b;
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Arrow Functions
+
+						Benefits
+						- Less verbose.
+						- `this` scope is taken from its context.
+
+						Warnings
+						- Not meant to 100% replace `function`. Sometimes you need your function to bind `this` to the object that called it.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+					</textarea>
+				</section>
 			</div>
 		</div>
 
