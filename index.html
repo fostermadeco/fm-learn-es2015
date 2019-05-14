@@ -311,6 +311,83 @@
 						```
 					</textarea>
 				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Object and Array Destructuring
+
+						Say you have an object...
+						```
+							const person = {
+								firstName: 'Adam',
+								lastName: 'Tsai',
+								jobTitle: 'Web developer',
+								age: 'Immortal',
+								wuTangGeneratedName: 'Superior Oblong',
+							};
+						```
+
+						...and you want to pull properties out.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Object and Array Destructuring
+
+						Old
+						```
+							const message = `
+								Hello, ${person.firstName} ${person.lastName}.
+								You are doing an ok job at being a(n) ${person.jobTitle}.
+							`;
+
+							alert(message)
+						```
+
+						Or
+						```
+							const firstName = person.firstName;
+							const lastName = person.lastName;
+							const jobTitle = person.jobTitle;
+
+							const message = `
+								Hello, ${firstName} ${lastName}.
+								You are doing an ok job at being a(n) ${jobTitle}.
+							`;
+
+							alert(message)
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Object and Array Destructuring
+
+						With destructuring
+						```
+							const { firstName, lastName, jobTitle} = person;
+							const message = `
+								Hello, ${firstName} ${lastName}.
+								You are doing an ok job at being a(n) ${jobTitle}.
+							`;
+
+							alert(message)
+						```
+
+						Works with arrays too
+						```
+							const people = [
+								'Jon Snow',
+								'Daenerys Targaryen',
+								'Tyrion Lannister'
+							];
+
+							const { jon, dany, tyrion } = people;
+						```
+					</textarea>
+				</section>
 				
 				<section data-markdown>
 					<textarea data-template>
