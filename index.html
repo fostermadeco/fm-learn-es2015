@@ -31,7 +31,7 @@
 
 				<section>
 					<h2>FM Javascript Quick Reference ES2015+</h2>
-					<p>https://github.com/fostermadeco/standards/blob/master/javascript/js-quick-reference.md</p>
+					<small>https://github.com/fostermadeco/standards/</small>
 				</section>
 
 				<section>
@@ -39,6 +39,12 @@
 					<p>ES5, ES2015, ES2017, ES2018, ESNext</p>
 					<p>Going forward, ECMAScript will be updated annually</p>
 					<p>(ES2015 === ES6)</p>
+				</section>
+
+				<section>
+					<h2>Babel & Polyfills</h2>
+					<p>Mix uses Babel to compile ES2105+ syntax to vanilla JS.</p>
+					<p>Our Mix setup also adds polyfills to support used ES2015+ built-ins in older browsers like IE11.</p>
 				</section>
 
 				<section data-markdown><textarea data-template>
@@ -63,12 +69,10 @@
 					cats.includes("Sylvie"); // true
 					```
 				</textarea></section>
-				<section>
-					<h2>Babel & Polyfills</h2>
-					<p>Mix uses Babel to compile ES2105+ syntax to vanilla JS.</p>
-					<p>Our Mix setup also adds polyfills to support used ES2015+ built-ins in older browsers like IE11.</p>
-				</section>
+
 				<section data-markdown><textarea data-template>
+					## Misc notes
+					
 					Strict mode included
 
 					```
