@@ -42,17 +42,22 @@
 				</section>
 
 				<section>
-					<h2>Babel & Polyfills</h2>
-					<p>Mix uses Babel to compile ES2105+ syntax to vanilla JS.</p>
-					<p>Our Mix setup also adds polyfills to support <em>used</em> ES2015+ built-ins for older browsers like IE11.</p>
+					<h2>Mix & Babel & Polyfills</h2>
+					<p>With our mix setup you can safely use ES2015 and ES2017</p>
+					<small>💥 Mix uses Babel to compile ES2105+ syntax to vanilla JS.</small>
+					<small>💥 Our Mix setup also adds polyfills to support <em>used</em> ES2015+ built-ins for older browsers like IE11.</small>
 				</section>
 
 				<section data-markdown><textarea data-template>
-					## Syntax and Built-ins
+					## Syntax vs. Built-ins
 					
-					Syntax:
-					
-					`let` & `const`, arrow functions, `class`
+					Syntax: `let` & `const`, arrow functions, `class`
+
+					```
+					const cat = "Sylvie";
+					// Babel compiles to 
+					const var = "Sylvie";
+					```
 
 					Built-ins (methods and objects):
 
@@ -134,7 +139,7 @@
 					```
 					**When to use**
 
-					<strong>When the variable will be reassigned a new value.</strong>
+					<small>When the variable will be reassigned a new value.</small>
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					## `const`
@@ -181,7 +186,7 @@
 				<section data-markdown><textarea data-template>
 					## Iterables
 
-					Old:
+					Old 🛑:
 					```
 					for (let i = 0; i < arr.length; ++i) {
 						const item = arr[i];
@@ -197,11 +202,15 @@
 						console.log(name, index);
 					});
 					```
-					* For arrays.
-					* Can't break out of it.
+					<small>💥 For arrays.</small>
+
+					<small>😢 Can't break out of it.</small>
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					`for/in`
+
+					<small>For objects, but can be used with arrays (as long as order isn't important).</small>
+
 					```
 					const cat = {name: 'Sylvie', type: 'calico', gender: 'female'};
 
@@ -209,17 +218,14 @@
 						const value = cat[key];
 						console.log(value, key)
 					}
-
-					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
-
-					for (const i in names) {
-						const name = names[i];
-					}
 					```
-					For objects, but can be used with arrays (as long as order isn't important). 
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					`for/of`
+
+					<small>The Cadillac 🏎️ 🚙 🚗</small>
+
+					<small>Very versatile. Can be used on anything iterable: array, string, object (ES2017), dom collection (node list), arguments, string, map or set.</small>
 					
 					```
 					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
@@ -235,10 +241,9 @@
 					}
 					```
 
-					* <small>Very versatile. Can be used on anything iterable: array, string, object (ES2017), dom collection (node list), arguments, string, map or set.</small>
-					* <small>`array.entries` returns a new Array iterator object.</small>
-					* <small>`Object.entries(obj)` returns array of [key, value].</small>
-					* <small>Also uses destructuring.</small>
+					<small>* `array.entries` returns a new Array iterator object.</small>
+					<small>* `Object.entries(obj)` returns array of [key, value].</small>
+					<small>* Also uses destructuring.</small>
 				</textarea></section>
 
 				<section data-markdown>
