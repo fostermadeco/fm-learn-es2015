@@ -186,15 +186,22 @@
 				<section data-markdown><textarea data-template>
 					## Iterables
 
-					Old 🛑:
+					`for`
+
+					Old, difficult syntax 🛑:
 					```
-					for (let i = 0; i < arr.length; ++i) {
-						const item = arr[i];
+					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
+
+					for (let i = 0; i < names.length; ++i) {
+						const name = names[i];
 					}
 					```
 				</textarea></section>
 				<section data-markdown><textarea data-template>
-					forEach
+					`forEach()`
+					
+					<small>💥 For arrays. 😢 Can't break out of it.</small>
+					
 					```
 					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
 
@@ -202,9 +209,6 @@
 						console.log(name, index);
 					});
 					```
-					<small>💥 For arrays.</small>
-
-					<small>😢 Can't break out of it.</small>
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					`for/in`
@@ -223,18 +227,20 @@
 				<section data-markdown><textarea data-template>
 					`for/of`
 
-					<small>The Cadillac 🏎️ 🚙 🚗</small>
-
 					<small>Very versatile. Can be used on anything iterable: array, string, object (ES2017), dom collection (node list), arguments, string, map or set.</small>
 					
+					<small>With an array:</small>
 					```
 					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
 
 					for (const [index, item] of names.entries()) {
 						console.log(item, index);
 					}
+					```
 
-					const cat = {name: 'Sylvie', type: 'calico', gender: 'female'};
+					<small>With an object:</small>
+					```
+					const cat = { name: 'Sylvie', type: 'calico', gender: 'female' };
 
 					for (const [key, value] of Object.entries(cat)) {
 						console.log(key, value);
