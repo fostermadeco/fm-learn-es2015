@@ -391,6 +391,36 @@
 
 				<section data-markdown>
 					<textarea data-template>
+						## Object Literal property value shorthand
+
+						If you are assigning to an object property from a variable of the same name, you can use this shorthand.
+
+						OLD
+						```
+						const a = 1;
+						const b = 2;
+						const c = 3;
+						const combined = { a: a, b: b, c: c };
+						```
+
+						New
+						```
+						const a = 1;
+						const b = 2;
+						const c = 3;
+						const combined = { a, b, c };
+						```
+					</textarea>
+				</section>
+				
+				<section data-markdown>
+					<textarea data-template>
+					</textarea>
+				</section>
+
+				<!--
+				<section data-markdown>
+					<textarea data-template>
 						## Spread Operator
 
 						Official definition on MDN docs:
@@ -493,35 +523,7 @@
 						```
 					</textarea>
 				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						## Object Literal property value shorthand
-
-						If you are assigning to an object property from a variable of the same name, you can use this shorthand.
-
-						OLD
-						```
-						const a = 1;
-						const b = 2;
-						const c = 3;
-						const combined = { a: a, b: b, c: c };
-						```
-
-						New
-						```
-						const a = 1;
-						const b = 2;
-						const c = 3;
-						const combined = { a, b, c };
-						```
-					</textarea>
-				</section>
-				
-				<section data-markdown>
-					<textarea data-template>
-					</textarea>
-				</section>
+				-->
 			</div>
 		</div>
 
