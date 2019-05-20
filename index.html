@@ -31,22 +31,33 @@
 
 				<section>
 					<h2>FM Javascript Quick Reference ES2015+</h2>
-					<p>https://github.com/fostermadeco/standards/blob/master/javascript/js-quick-reference.md</p>
+					<small>https://github.com/fostermadeco/standards/</small>
 				</section>
 
 				<section>
 					<h2>JS Versions</h2>
-					<p>ES5, ES2015, ES2017, ES2018, ESNext</p>
-					<p>Going forward, ECMAScript will be updated annually</p>
-					<p>(ES2015 === ES6)</p>
+					<p>💥 ES5, ES2015, ES2017, ES2018, ESNext</p>
+					<p>💥 Going forward, ECMAScript will be updated annually</p>
+					<p>💥 (ES2015 === ES6)</p>
+				</section>
+
+				<section>
+					<h2>Mix & Babel & Polyfills</h2>
+					<p>With our mix setup you can safely use ES2015 and ES2017</p>
+					<small>💥 Mix uses Babel to compile ES2105+ syntax to vanilla JS.</small>
+					<small>💥 Our Mix setup also adds polyfills to support <em>used</em> ES2015+ built-ins for older browsers like IE11.</small>
 				</section>
 
 				<section data-markdown><textarea data-template>
-					## Syntax and Built-ins
+					## Syntax vs. Built-ins
 					
-					Syntax:
-					
-					`let` & `const`, arrow functions, `class`
+					Syntax: `let` & `const`, arrow functions, `class`
+
+					```
+					const cat = "Sylvie";
+					// Babel compiles to 
+					const var = "Sylvie";
+					```
 
 					Built-ins (methods and objects):
 
@@ -63,12 +74,10 @@
 					cats.includes("Sylvie"); // true
 					```
 				</textarea></section>
-				<section>
-					<h2>Babel & Polyfills</h2>
-					<p>Mix uses Babel to compile ES2105+ syntax to vanilla JS.</p>
-					<p>Our Mix setup also adds polyfills to support used ES2015+ built-ins in older browsers like IE11.</p>
-				</section>
+
 				<section data-markdown><textarea data-template>
+					## Misc notes
+
 					Strict mode included
 
 					```
@@ -86,48 +95,6 @@
 					There are three ways to declare variables: 
 					
 					`var`, `let` and `const`.
-				</textarea></section>
-				<section data-markdown><textarea data-template>
-					## `let`
-
-					block scope variable that can change
-					
-					```
-					let x = 1;
-
-					if (x === 1) {
-						let x = 2;
-
-						console.log(x);
-						// expected output: 2
-					}
-
-					console.log(x);
-					// expected output: 1
-					```
-					**When to use**
-
-					When the variable will be reassigned a new value.
-				</textarea></section>
-				<section data-markdown><textarea data-template>
-					## `const`
-					
-					block scope variable that can't change
-					
-					```
-					const number = 42;
-					
-					try {
-						number = 99;
-					} catch(err) {
-						console.log(err);
-						// expected output: TypeError: invalid assignment to const `number'
-						// Note - error messages will vary depending on browser
-					}
-					
-					console.log(number);
-					// expected output: 42
-					```
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					## `var`
@@ -150,8 +117,51 @@
 					
 					**When to use:**
 					
-					When you aren't using something like Babel to compile your js. Or check browser compatibility.
+					<small>When you aren't using something like Babel to compile your js. Or check browser compatibility.</small>
 				</textarea></section>
+				<section data-markdown><textarea data-template>
+					## `let`
+
+					block scope variable that can change
+					
+					```
+					let x = 1;
+
+					if (x === 1) {
+						let x = 2;
+
+						console.log(x);
+						// expected output: 2
+					}
+
+					console.log(x);
+					// expected output: 1
+					```
+					**When to use**
+
+					<small>When the variable will be reassigned a new value.</small>
+				</textarea></section>
+				<section data-markdown><textarea data-template>
+					## `const`
+					
+					block scope variable that can't change
+					
+					```
+					const number = 42;
+					
+					try {
+						number = 99;
+					} catch(err) {
+						console.log(err);
+						// expected output: TypeError: invalid assignment to const `number'
+						// Note - error messages will vary depending on browser
+					}
+					
+					console.log(number);
+					// expected output: 42
+					```
+				</textarea></section>
+
 				<section data-markdown><textarea data-template>
 					## Template Literals
 
@@ -159,10 +169,14 @@
 					const first = 'Kelly';
 					const last = 'Packer';
 
+					// old
 					const intro = 'My name is ' + first + ' ' + last + '!';
+					
+					// template literal
 					const intro2 = `My name is ${first} ${last}!`;
 
-					const template = `
+					// multi-line template literal
+					const headerTemplate = `
 						<div>
 							<h1>Hi, my name is ${first} ${last}!</h1>
 						</div>
@@ -172,15 +186,22 @@
 				<section data-markdown><textarea data-template>
 					## Iterables
 
-					Old:
+					`for`
+
+					Old, difficult syntax 🛑:
 					```
-					for (let i = 0; i < arr.length; ++i) {
-						const item = arr[i];
+					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
+
+					for (let i = 0; i < names.length; ++i) {
+						const name = names[i];
 					}
 					```
 				</textarea></section>
 				<section data-markdown><textarea data-template>
-					forEach
+					`forEach()`
+					
+					<small>💥 For arrays. 😢 Can't break out of it.</small>
+					
 					```
 					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
 
@@ -188,11 +209,12 @@
 						console.log(name, index);
 					});
 					```
-					* For arrays.
-					* Can't break out of it.
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					`for/in`
+
+					<small>For objects, but can be used with arrays (as long as order isn't important).</small>
+
 					```
 					const cat = {name: 'Sylvie', type: 'calico', gender: 'female'};
 
@@ -200,36 +222,34 @@
 						const value = cat[key];
 						console.log(value, key)
 					}
-
-					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
-
-					for (const i in names) {
-						const name = names[i];
-					}
 					```
-					For objects, but can be used with arrays (as long as order isn't important). 
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					`for/of`
+
+					<small>Very versatile. Can be used on anything iterable: array, string, object (ES2017), dom collection (node list), arguments, string, map or set.</small>
 					
+					<small>With an array:</small>
 					```
 					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
 
 					for (const [index, item] of names.entries()) {
 						console.log(item, index);
 					}
+					```
 
-					const cat = {name: 'Sylvie', type: 'calico', gender: 'female'};
+					<small>With an object:</small>
+					```
+					const cat = { name: 'Sylvie', type: 'calico', gender: 'female' };
 
 					for (const [key, value] of Object.entries(cat)) {
 						console.log(key, value);
 					}
 					```
 
-					* Very versatile. Can be used on anything iterable: array, string, object (ES2017), dom collection (node list), arguments, string, map or set.
-					* `array.entries` returns a new Array iterator object. 
-					* `Object.entries(obj)` returns array of [key, value]. 
-					* Also uses destructuring.
+					<small>* `array.entries` returns a new Array iterator object.</small>
+					<small>* `Object.entries(obj)` returns array of [key, value].</small>
+					<small>* Also uses destructuring.</small>
 				</textarea></section>
 
 				<section data-markdown>
