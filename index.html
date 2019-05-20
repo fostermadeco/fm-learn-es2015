@@ -334,18 +334,22 @@
 					<textarea data-template>
 						## Object and Array Destructuring
 
-						Say you have an object...
+						Say you have an object that you want to use some properties from.
 						```
 							const person = {
 								firstName: 'Adam',
 								lastName: 'Tsai',
 								jobTitle: 'Web developer',
-								age: 'Immortal',
-								wuTangGeneratedName: 'Superior Oblong',
 							};
 						```
 
-						...and you want to pull properties out.
+						You might write something like this.
+
+						```
+
+						const message = 'Hello, ' + person.firstName + ' ' + person.lastName + '.';
+						.
+						```
 					</textarea>
 				</section>
 
@@ -353,28 +357,12 @@
 					<textarea data-template>
 						#### Object and Array Destructuring
 
-						Old
-						```
-							const message = `
-								Hello, ${person.firstName} ${person.lastName}.
-								You are doing an ok job at being a(n) ${person.jobTitle}.
-							`;
-
-							alert(message)
-						```
-
-						Or
+						Or you might write it like this.
 						```
 							const firstName = person.firstName;
 							const lastName = person.lastName;
-							const jobTitle = person.jobTitle;
 
-							const message = `
-								Hello, ${firstName} ${lastName}.
-								You are doing an ok job at being a(n) ${jobTitle}.
-							`;
-
-							alert(message)
+							const message = 'Hello, ' + firstName + ' ' + lastName + '.';
 						```
 					</textarea>
 				</section>
@@ -385,13 +373,8 @@
 
 						With destructuring
 						```
-							const { firstName, lastName, jobTitle} = person;
-							const message = `
-								Hello, ${firstName} ${lastName}.
-								You are doing an ok job at being a(n) ${jobTitle}.
-							`;
-
-							alert(message)
+							const { firstName, lastName } = person;
+							const message = 'Hello, ' + firstName + ' ' + lastName + '.';
 						```
 
 						Works with arrays too
