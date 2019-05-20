@@ -257,14 +257,14 @@
 						## Arrow Functions
 						(AKA "fat arrow" syntax)
 
-						Old
+						Pre-ES2015
 						```
 							var addTwoNumbers = function (a, b) {
 								return a + b;
 							}
 						```
 
-						New
+						ES2015
 						```
 							const addTwoNumbers = (a, b) => {
 								return a + b;
@@ -295,11 +295,9 @@
 					<textarea data-template>
 						#### Arrow Functions
 
-						Benefits
-						- Less verbose.
+						Notes
+						- Has the benefit of being less verbose.
 						- `this` scope is taken from its context.
-
-						Warnings
 						- Not meant to 100% replace `function`. Sometimes you need your function to bind `this` to the object that called it.
 					</textarea>
 				</section>
