@@ -53,7 +53,7 @@
 					
 					Syntax: `let` & `const`, arrow functions, `class`
 
-					```
+					```javascript
 					const cat = "Sylvie";
 					// Babel compiles to 
 					var cat = "Sylvie";
@@ -61,7 +61,7 @@
 
 					Built-ins (methods and objects):
 
-					```
+					```javascript
 					const cats = ["Sylvie", "Blixa", "Max", "Ramona"];
 
 					// String.startsWith - ES2015
@@ -80,12 +80,12 @@
 
 					Strict mode included
 
-					```
+					```javascript
 					"use strict";
 					```
 
 					Unnecessary if file is included before closing body tag
-					```
+					```javascript
 					$(document).ready({});
 					```
 				</textarea></section>
@@ -101,7 +101,7 @@
 
 					not block scoped
 					
-					```
+					```javascript
 					var x = 1;
 					
 					if (x === 1) {
@@ -124,7 +124,7 @@
 
 					block scope variable that can change
 					
-					```
+					```javascript
 					let x = 1;
 
 					if (x === 1) {
@@ -146,7 +146,7 @@
 					
 					block scope variable that can't change
 					
-					```
+					```javascript
 					const number = 42;
 					
 					try {
@@ -165,7 +165,7 @@
 				<section data-markdown><textarea data-template>
 					## Template Literals
 
-					```
+					```javascript
 					const first = 'Kelly';
 					const last = 'Packer';
 
@@ -189,7 +189,7 @@
 					`for`
 
 					Old, difficult syntax 🛑:
-					```
+					```javascript
 					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
 
 					for (let i = 0; i < names.length; ++i) {
@@ -202,7 +202,7 @@
 					
 					<small>💥 For arrays. 😢 Can't break out of it.</small>
 					
-					```
+					```javascript
 					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
 
 					names.forEach(function(name, index) {
@@ -215,7 +215,7 @@
 
 					<small>For objects, but can be used with arrays (as long as order isn't important).</small>
 
-					```
+					```javascript
 					const cat = {name: 'Sylvie', type: 'calico', gender: 'female'};
 
 					for (const key in cat) {
@@ -230,7 +230,7 @@
 					<small>Very versatile. Can be used on anything iterable: array, string, object (ES2017), dom collection (node list), arguments, string, map or set.</small>
 					
 					<small>With an array:</small>
-					```
+					```javascript
 					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
 
 					for (const [index, item] of names.entries()) {
@@ -239,7 +239,7 @@
 					```
 
 					<small>With an object:</small>
-					```
+					```javascript
 					const cat = { name: 'Sylvie', type: 'calico', gender: 'female' };
 
 					for (const [key, value] of Object.entries(cat)) {
@@ -258,17 +258,17 @@
 						(AKA "fat arrow" syntax)
 
 						Pre-ES2015
-						```
-							var addTwoNumbers = function (a, b) {
-								return a + b;
-							}
+						```javascript
+						var addTwoNumbers = function (a, b) {
+							return a + b;
+						}
 						```
 
 						ES2015
-						```
-							const addTwoNumbers = (a, b) => {
-								return a + b;
-							}
+						```javascript
+						const addTwoNumbers = (a, b) => {
+							return a + b;
+						}
 						```
 					</textarea>
 				</section>
@@ -278,15 +278,15 @@
 						#### Arrow Functions
 
 						If your function is just a single expression, then this syntax
-						```
-							const addTwoNumbers = (a, b) => {
-								return a + b;
-							}
+						```javascript
+						const addTwoNumbers = (a, b) => {
+							return a + b;
+						}
 						```
 
 						Can also be written as
-						```
-							const addTwoNumbers = (a, b) => a + b;
+						```javascript
+						const addTwoNumbers = (a, b) => a + b;
 						```
 					</textarea>
 				</section>
@@ -307,25 +307,25 @@
 						## Default Function Parameters
 
 						Old
-						```
-							function addTwoNumbers(a, b) {
-								if (typeof b === 'undefined') {
-									b = 0;
-								}
-								
-								return a + b;
+						```javascript
+						function addTwoNumbers(a, b) {
+							if (typeof b === 'undefined') {
+								b = 0;
 							}
+							
+							return a + b;
+						}
 
-							addTwoNumbers(5);
+						addTwoNumbers(5);
 						```
 
 						New
-						```
-							function addTwoNumbers(a, b = 0) {
-								return a + b;
-							}
+						```javascript
+						function addTwoNumbers(a, b = 0) {
+							return a + b;
+						}
 
-							addTwoNumbers(5);
+						addTwoNumbers(5);
 						```
 					</textarea>
 				</section>
@@ -335,20 +335,18 @@
 						## Object and Array Destructuring
 
 						Say you have an object that you want to use some properties from.
-						```
-							const person = {
-								firstName: 'Adam',
-								lastName: 'Tsai',
-								jobTitle: 'Web developer',
-							};
+						```javascript
+						const person = {
+							firstName: 'Adam',
+							lastName: 'Tsai',
+							jobTitle: 'Web developer',
+						};
 						```
 
 						You might write something like this.
 
-						```
-
-						const message = 'Hello, ' + person.firstName + ' ' + person.lastName + '.';
-						.
+						```javascript
+						const message = `Hello, ${person.firstName} ${person.lastName}.`;
 						```
 					</textarea>
 				</section>
@@ -358,11 +356,11 @@
 						#### Object and Array Destructuring
 
 						Or you might write it like this.
-						```
-							const firstName = person.firstName;
-							const lastName = person.lastName;
+						```javascript
+						const firstName = person.firstName;
+						const lastName = person.lastName;
 
-							const message = 'Hello, ' + firstName + ' ' + lastName + '.';
+						const message = `Hello, ${firstName} ${lastName}.`;
 						```
 					</textarea>
 				</section>
@@ -372,20 +370,20 @@
 						#### Object and Array Destructuring
 
 						With destructuring
-						```
-							const { firstName, lastName } = person;
-							const message = 'Hello, ' + firstName + ' ' + lastName + '.';
+						```javascript
+						const { firstName, lastName } = person;
+						const message = `Hello, ${firstName} ${lastName}.`;
 						```
 
 						Works with arrays too
-						```
-							const people = [
-								'Jon Snow',
-								'Daenerys Targaryen',
-								'Tyrion Lannister'
-							];
+						```javascript
+						const people = [
+							'Jon Snow',
+							'Daenerys Targaryen',
+							'Tyrion Lannister'
+						];
 
-							const { jon, dany, tyrion } = people;
+						const { jon, dany, tyrion } = people;
 						```
 					</textarea>
 				</section>
@@ -394,21 +392,15 @@
 					<textarea data-template>
 						## Object Literal property value shorthand
 
-						If you are assigning to an object property from a variable of the same name, you can use this shorthand.
+						<small>If you are assigning to an object property from a variable of the same name, you can use this shorthand.</small>
 
-						OLD
-						```
+						```javascript
 						const a = 1;
 						const b = 2;
 						const c = 3;
+						# OLD
 						const combined = { a: a, b: b, c: c };
-						```
-
-						New
-						```
-						const a = 1;
-						const b = 2;
-						const c = 3;
+						# NEW
 						const combined = { a, b, c };
 						```
 					</textarea>
