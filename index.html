@@ -383,7 +383,7 @@
 							'Tyrion Lannister'
 						];
 
-						const { jon, dany, tyrion } = people;
+						const [ jon, dany, tyrion ] = people;
 						```
 					</textarea>
 				</section>
@@ -395,13 +395,13 @@
 						<small>If you are assigning to an object property from a variable of the same name, you can use this shorthand.</small>
 
 						```javascript
-						const a = 1;
-						const b = 2;
-						const c = 3;
+						const goat = 1;
+						const pig = 2;
+						const bear = 3;
 						# OLD
-						const combined = { a: a, b: b, c: c };
+						const combined = { goat: goat, pig: pig, bear: bear };
 						# NEW
-						const combined = { a, b, c };
+						const combined = { goat, pig, bear };
 						```
 					</textarea>
 				</section>
