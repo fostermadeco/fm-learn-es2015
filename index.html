@@ -366,10 +366,60 @@
 					<textarea data-template>
 						#### Arrow Functions
 
-						Notes
-						- Has the benefit of being less verbose.
-						- `this` scope is taken from the context that it's called from.
-						- Not meant to 100% replace `function`. Sometimes you need your function to bind `this` to the object that called it.
+						Not meant to 100% replace `function`. The fat arrow changes the way `this` is bound.
+
+						```javascript
+						$('input[name="first_name"').on('click', function (event) {
+							console.log(this); // will log the input
+						});
+
+						$('input[name="first_name"').on('click', event => {
+							console.log(this); // will log the context that it was called from
+						});
+						```
+						
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Arrow Functions
+
+						But sometimes that is what you want. Ever seen this?
+						```javascript
+						function MyCounter() {
+							var self = this;
+							self.counter = 0;
+							
+							this.startCounter = function () {
+								setInterval(function() {
+									self.counter++;
+									console.log(self.counter);
+								}, 1000);
+							}
+						}
+						
+						var instance = new MyCounter();
+						instance.startCounter();
+						```
+
+						Replace the interval callback with an arrow function:
+						```javascript
+						function MyCounter() {
+							this.counter = 0;
+							
+							this.startCounter = function () {
+								setInterval(() => {
+									this.counter++;
+									console.log(this.counter);
+								}, 1000);
+							}
+						}
+						
+						var instance = new MyCounter();
+						instance.startCounter();
+						```
+						
 					</textarea>
 				</section>
 
