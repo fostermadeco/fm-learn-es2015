@@ -321,6 +321,8 @@
 						## Arrow Functions
 						(AKA "fat arrow" syntax)
 
+						A more concise syntax for writing function expressions.
+
 						Pre-ES2015 Function Expression
 						```javascript
 						var addTwoNumbers = function (a, b) {
@@ -341,16 +343,21 @@
 					<textarea data-template>
 						#### Arrow Functions
 
-						If your function is just a single expression, then this syntax
+						If your function is just a single expression, then this can also be writen with an implicit return
 						```javascript
-						const addTwoNumbers = (a, b) => {
-							return a + b;
-						}
+						const addTwoNumbers = (a, b) => (
+							a + b
+						);
 						```
 
-						Can also be written as
+						or just
 						```javascript
 						const addTwoNumbers = (a, b) => a + b;
+						```
+
+						If your function has just a single parameter, you can omit the parentheses:
+						```javascript
+						const multiplyBy5 = a => a * 5;
 						```
 					</textarea>
 				</section>
