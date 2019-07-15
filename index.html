@@ -369,11 +369,11 @@
 						Not meant to 100% replace `function`. The fat arrow changes the way `this` is bound.
 
 						```javascript
-						$('input[name="first_name"').on('click', function (event) {
+						$('input[name="first_name"]').on('click', function (event) {
 							console.log(this); // will log the input
 						});
 
-						$('input[name="first_name"').on('click', event => {
+						$('input[name="first_name"]').on('click', event => {
 							console.log(this); // will log the context that it was called from
 						});
 						```
