@@ -428,48 +428,6 @@
 
 				<section data-markdown>
 					<textarea data-template>
-						#### Arrow Functions
-
-						But sometimes that is what you want. Ever seen this?
-						```javascript
-						function MyCounter() {
-							var self = this;
-							self.counter = 0;
-							
-							this.startCounter = function () {
-								setInterval(function() {
-									self.counter++;
-									console.log(self.counter);
-								}, 1000);
-							}
-						}
-						
-						var instance = new MyCounter();
-						instance.startCounter();
-						```
-
-						Replace the interval callback with an arrow function:
-						```javascript
-						function MyCounter() {
-							this.counter = 0;
-							
-							this.startCounter = function () {
-								setInterval(() => {
-									this.counter++;
-									console.log(this.counter);
-								}, 1000);
-							}
-						}
-						
-						var instance = new MyCounter();
-						instance.startCounter();
-						```
-						
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
 						## Default Function Parameters
 
 						Old
