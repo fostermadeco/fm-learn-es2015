@@ -36,44 +36,56 @@
 
 				<section>
 					<h2>JS Versions</h2>
-					<p>💥 ES5, ES2015, ES2017, ES2018, ESNext</p>
+					<p>ECMAScript is the scripting language that forms the basis of JavaScript.</p>
+					<p>When you see ES6, it means that that version of JavaScript is following the specifications in the sixth edition of ECMAScript</p>
+				</section>
+				<section>
+					<h2>A version is a set of features</h2>
+					<p>💥 ES6 === ES2015</p>
 					<p>💥 Going forward, ECMAScript will be updated annually</p>
-					<p>💥 (ES2015 === ES6)</p>
+					<p>💥 ES2015, ES2017, ES2018, ESNext</p>
 				</section>
 
 				<section>
-					<h2>Mix & Babel & Polyfills</h2>
+					<h2>Compiling: Babel</h2>
+					<p>Converts ES2015+ code into backwards compatibility js that can be read by current and older browsers</p>
+					<p>💥 Syntax</p>
+					<p>💥 Polyfills for built-ins</p>
+				</section>
+
+				<section data-markdown><textarea data-template>
+						## Syntax vs. Built-ins
+						
+						Syntax: `let` & `const`, arrow functions, `class`
+	
+						```javascript
+						const cat = 'Sylvie';
+						// Babel compiles to 
+						var cat = 'Sylvie';
+						```
+	
+						Built-ins (methods and objects):
+	
+						```javascript
+						const cats = ['Sylvie', 'Blixa', 'Max', 'Ramona'];
+	
+						// String.startsWith - ES2015
+						cats[0].startsWith('Sy'); // true
+	
+						// Array.find - ES2015
+						cats.find(cat => cat === 'Sylvie'); // Sylvie
+	
+						// Array.includes - ES2016
+						cats.includes('Sylvie'); // true
+						```
+					</textarea></section>
+
+				<section>
+					<h2>Mix</h2>
 					<p>With our mix setup you can safely use ES2015 and ES2017</p>
 					<small>💥 Mix uses Babel to compile ES2105+ syntax to vanilla JS.</small>
 					<small>💥 Our Mix setup also adds polyfills to support <em>used</em> ES2015+ built-ins for older browsers like IE11.</small>
 				</section>
-
-				<section data-markdown><textarea data-template>
-					## Syntax vs. Built-ins
-					
-					Syntax: `let` & `const`, arrow functions, `class`
-
-					```javascript
-					const cat = "Sylvie";
-					// Babel compiles to 
-					var cat = "Sylvie";
-					```
-
-					Built-ins (methods and objects):
-
-					```javascript
-					const cats = ["Sylvie", "Blixa", "Max", "Ramona"];
-
-					// String.startsWith - ES2015
-					cats[0].startsWith("Sy"); // true
-
-					// Array.find - ES2015
-					cats.find(cat => cat === "Sylvie"); // Sylvie
-
-					// Array.includes - ES2016
-					cats.includes("Sylvie"); // true
-					```
-				</textarea></section>
 
 				<section data-markdown><textarea data-template>
 					## Misc notes
@@ -89,13 +101,21 @@
 					$(document).ready({});
 					```
 				</textarea></section>
+
 				<section data-markdown><textarea data-template>
-					## Declarations
-					
-					There are three ways to declare variables: 
-					
-					`var`, `let` and `const`.
+					<h2>Features</h2>
 				</textarea></section>
+
+				<section data-markdown><textarea data-template>
+					## Variable Declarations
+
+					<small>ES2015 introduced two new ways to declare</small>
+					
+					<p>var</p>
+					<p>let</p>
+					<p>const</p>
+				</textarea></section>
+
 				<section data-markdown><textarea data-template>
 					## `var`
 
@@ -117,29 +137,31 @@
 					
 					**When to use:**
 					
-					<small>When you aren't using something like Babel to compile your js. Or check browser compatibility.</small>
+					<small>You don't need to change old code, but I wouldn't suggest using `var` on new code.</small>
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					## `let`
 
-					block scope variable that can change
+					1) block scope variable 2) value can change
 					
 					```javascript
 					let x = 1;
+					x = 2;
 
 					if (x === 1) {
-						let x = 2;
+						let x = 3;
 
 						console.log(x);
-						// expected output: 2
+						// expected output: 3
 					}
 
 					console.log(x);
-					// expected output: 1
+					// expected output:2
 					```
 					**When to use**
 
 					<small>When the variable will be reassigned a new value.</small>
+
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					## `const`
@@ -184,7 +206,7 @@
 					```
 				</textarea></section>
 				<section data-markdown><textarea data-template>
-					## Iterables
+					## Iterables/Loops
 
 					`for`
 
@@ -220,36 +242,52 @@
 
 					for (const key in cat) {
 						const value = cat[key];
-						console.log(value, key)
+						// name Sylvie
+						console.log(key, value);
 					}
 					```
 				</textarea></section>
 				<section data-markdown><textarea data-template>
 					`for/of`
 
-					<small>Very versatile. Can be used on anything iterable: array, string, object (ES2017), dom collection (node list), arguments, string, map or set.</small>
-					
+					<small>💥 Very versatile.</small>
+					<small>💥 Can be used on anything iterable: array, string, object (ES2017), dom collection (node list), arguments, string, map or set.</small>
+				</textarea></section>
+
+				<section data-markdown><textarea data-template>
+					`for/of`
+
 					<small>With an array:</small>
 					```javascript
 					const names = ['Sylvie', 'Max', 'Blixa', 'Ramona'];
 
 					for (const [index, item] of names.entries()) {
+						// Sylvie 0
 						console.log(item, index);
 					}
 					```
+
+					<small>💥 `array.entries` returns a new Array iterator object</small>
+
+					<small>💥 Uses destructuring</small>
+				</textarea></section>
+
+				<section data-markdown><textarea data-template>
+					`for/of`
 
 					<small>With an object:</small>
 					```javascript
 					const cat = { name: 'Sylvie', type: 'calico', gender: 'female' };
 
 					for (const [key, value] of Object.entries(cat)) {
+						// name Sylvie
 						console.log(key, value);
 					}
 					```
 
-					<small>* `array.entries` returns a new Array iterator object.</small>
-					<small>* `Object.entries(obj)` returns array of [key, value].</small>
-					<small>* Also uses destructuring.</small>
+					<small>💥 `Object.entries(obj)` returns array of [key, value]</small>
+
+					<small>💥 Uses destructuring</small>
 				</textarea></section>
 
 				<section data-markdown>
