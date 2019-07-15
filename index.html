@@ -254,6 +254,64 @@
 
 				<section data-markdown>
 					<textarea data-template>
+						## Object and Array Destructuring
+
+						Say you have an object that you want to use some properties from.
+						```javascript
+						const person = {
+							firstName: 'Adam',
+							lastName: 'Tsai',
+							jobTitle: 'Web developer',
+						};
+						```
+
+						You might write something like this.
+
+						```javascript
+						const message = `Hello, ${person.firstName} ${person.lastName}.`;
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Object and Array Destructuring
+
+						Or you might write it like this.
+						```javascript
+						const firstName = person.firstName;
+						const lastName = person.lastName;
+
+						const message = `Hello, ${firstName} ${lastName}.`;
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Object and Array Destructuring
+
+						With destructuring
+						```javascript
+						const { firstName, lastName } = person;
+						const message = `Hello, ${firstName} ${lastName}.`;
+						```
+
+						Works with arrays too
+						```javascript
+						const people = [
+							'Jon Snow',
+							'Daenerys Targaryen',
+							'Tyrion Lannister'
+						];
+
+						const [ jon, dany, tyrion ] = people;
+						```
+					</textarea>
+				</section>
+				
+				<section data-markdown>
+					<textarea data-template>
 						## Arrow Functions
 						(AKA "fat arrow" syntax)
 
@@ -326,64 +384,6 @@
 						}
 
 						addTwoNumbers(5);
-						```
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						## Object and Array Destructuring
-
-						Say you have an object that you want to use some properties from.
-						```javascript
-						const person = {
-							firstName: 'Adam',
-							lastName: 'Tsai',
-							jobTitle: 'Web developer',
-						};
-						```
-
-						You might write something like this.
-
-						```javascript
-						const message = `Hello, ${person.firstName} ${person.lastName}.`;
-						```
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						#### Object and Array Destructuring
-
-						Or you might write it like this.
-						```javascript
-						const firstName = person.firstName;
-						const lastName = person.lastName;
-
-						const message = `Hello, ${firstName} ${lastName}.`;
-						```
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						#### Object and Array Destructuring
-
-						With destructuring
-						```javascript
-						const { firstName, lastName } = person;
-						const message = `Hello, ${firstName} ${lastName}.`;
-						```
-
-						Works with arrays too
-						```javascript
-						const people = [
-							'Jon Snow',
-							'Daenerys Targaryen',
-							'Tyrion Lannister'
-						];
-
-						const [ jon, dany, tyrion ] = people;
 						```
 					</textarea>
 				</section>
