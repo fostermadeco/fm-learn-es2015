@@ -94,6 +94,14 @@
 					<small>💥 Our Mix setup also adds polyfills to support <em>used</em> ES2015+ built-ins for older browsers like IE11.</small>
 				</section>
 
+
+				<section data-markdown><textarea data-template>
+					<h2>Eslint & Prettier</h2>
+					<a href="https://github.com/fostermadeco/eslint-config-fostermade">
+						<img src="http://kellypackercom.s3.amazonaws.com/pages/eslint-prettier.png" />
+					</a>
+				</textarea></section>
+
 				<section data-markdown><textarea data-template>
 					## Misc notes
 
@@ -477,8 +485,34 @@
 						<h2>Fin</h2>
 
 						<h4>Questions?</h4>
+						<small><a href="https://kangax.github.io/compat-table/es2016plus/">ECMAScript compatibility table</a></s>
 					</textarea>
 				</section>
+
+				<section data-markdown><textarea data-template>
+						## Extra Credit
+						
+						New String & Array methods
+	
+						```javascript
+						const cats = ['Sylvie', 'Blixa', 'Max', 'Ramona'];
+	
+						// String.Prototype.startsWith - ES2015
+						cats[0].startsWith('Sy'); // true
+						// .endsWith, .includes
+	
+						// Array.Prototype.find - ES2015
+						cats.find(cat => cat === 'Sylvie'); // Sylvie
+	
+						// Array.Prototype.includes - ES2016
+						cats.includes('Sylvie'); // true
+
+						Array.Prototype.filter 
+						Array.Prototype.map 
+						Array.Prototype.some 
+						Array.Prototype.every
+						```
+					</textarea></section>
 
 				<!--
 				<section data-markdown>
