@@ -292,84 +292,6 @@
 
 				<section data-markdown>
 					<textarea data-template>
-						## Arrow Functions
-						(AKA "fat arrow" syntax)
-
-						Pre-ES2015
-						```javascript
-						var addTwoNumbers = function (a, b) {
-							return a + b;
-						}
-						```
-
-						ES2015
-						```javascript
-						const addTwoNumbers = (a, b) => {
-							return a + b;
-						}
-						```
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						#### Arrow Functions
-
-						If your function is just a single expression, then this syntax
-						```javascript
-						const addTwoNumbers = (a, b) => {
-							return a + b;
-						}
-						```
-
-						Can also be written as
-						```javascript
-						const addTwoNumbers = (a, b) => a + b;
-						```
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						#### Arrow Functions
-
-						Notes
-						- Has the benefit of being less verbose.
-						- `this` scope is taken from its context.
-						- Not meant to 100% replace `function`. Sometimes you need your function to bind `this` to the object that called it.
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						## Default Function Parameters
-
-						Old
-						```javascript
-						function addTwoNumbers(a, b) {
-							if (typeof b === 'undefined') {
-								b = 0;
-							}
-							
-							return a + b;
-						}
-
-						addTwoNumbers(5);
-						```
-
-						New
-						```javascript
-						function addTwoNumbers(a, b = 0) {
-							return a + b;
-						}
-
-						addTwoNumbers(5);
-						```
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
 						## Object and Array Destructuring
 
 						Say you have an object that you want to use some properties from.
@@ -386,12 +308,6 @@
 						```javascript
 						const message = `Hello, ${person.firstName} ${person.lastName}.`;
 						```
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						#### Object and Array Destructuring
 
 						Or you might write it like this.
 						```javascript
@@ -422,6 +338,153 @@
 						];
 
 						const [ jon, dany, tyrion ] = people;
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Object and Array Destructuring
+
+						You can also alias your variables
+						```javascript
+						const { firstName: first, lastName: last } = person;
+						const message = `Hello, ${first} ${last}.`;
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Arrow Functions
+						(AKA "fat arrow" syntax)
+
+						A more concise syntax for writing function expressions.
+
+						Pre-ES2015 Function Expression
+						```javascript
+						var addTwoNumbers = function (a, b) {
+							return a + b;
+						}
+						```
+
+						ES2015
+						```javascript
+						const addTwoNumbers = (a, b) => {
+							return a + b;
+						}
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Arrow Functions
+
+						If your function is just a single expression, then this can also be writen with an implicit return
+						```javascript
+						const addTwoNumbers = (a, b) => (
+							a + b
+						);
+						```
+
+						or just
+						```javascript
+						const addTwoNumbers = (a, b) => a + b;
+						```
+
+						If your function has just a single parameter, you can omit the parentheses:
+						```javascript
+						const multiplyBy5 = a => a * 5;
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Arrow Functions
+
+						Not meant to 100% replace `function`. The fat arrow changes the way `this` is bound.
+
+						```javascript
+						$('input[name="first_name"').on('click', function (event) {
+							console.log(this); // will log the input
+						});
+
+						$('input[name="first_name"').on('click', event => {
+							console.log(this); // will log the context that it was called from
+						});
+						```
+						
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Arrow Functions
+
+						But sometimes that is what you want. Ever seen this?
+						```javascript
+						function MyCounter() {
+							var self = this;
+							self.counter = 0;
+							
+							this.startCounter = function () {
+								setInterval(function() {
+									self.counter++;
+									console.log(self.counter);
+								}, 1000);
+							}
+						}
+						
+						var instance = new MyCounter();
+						instance.startCounter();
+						```
+
+						Replace the interval callback with an arrow function:
+						```javascript
+						function MyCounter() {
+							this.counter = 0;
+							
+							this.startCounter = function () {
+								setInterval(() => {
+									this.counter++;
+									console.log(this.counter);
+								}, 1000);
+							}
+						}
+						
+						var instance = new MyCounter();
+						instance.startCounter();
+						```
+						
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Default Function Parameters
+
+						Old
+						```javascript
+						function addTwoNumbers(a, b) {
+							if (typeof b === 'undefined') {
+								b = 0;
+							}
+							
+							return a + b;
+						}
+
+						addTwoNumbers(5);
+						```
+
+						New
+						```javascript
+						function addTwoNumbers(a, b = 0) {
+							return a + b;
+						}
+
+						addTwoNumbers(5);
 						```
 					</textarea>
 				</section>
