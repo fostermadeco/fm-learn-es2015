@@ -422,12 +422,14 @@
 						Not meant to 100% replace `function`. The fat arrow changes the way `this` is bound.
 
 						```javascript
-						$('input[name="first_name"]').on('click', function (event) {
-							console.log(this); // will log the input
+						$('input[name="first_name"]').on('change', function () {
+							var inputValue = $(this).val();
+							alert(inputValue);
 						});
 
-						$('input[name="first_name"]').on('click', event => {
-							console.log(this); // will log the context that it was called from
+						$('input[name="first_name"]').on('change', () => {
+							var inputValue = $(this).val(); // This will result in an error
+							alert(inputValue);
 						});
 						```
 						
